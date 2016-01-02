@@ -2,10 +2,21 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "portfolio site",
-  "main": "index.js",
+  "main": "./sctipts/build.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "browserify --transform babelify ./scripts/app.jsx --outfile ./scripts/build.js"
   },
   "author": "gupuru",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+  	"react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "gulp": "^3.9.0",
+    "react-bootstrap": "^0.28.1",
+    "gulp-webserver": "^0.9.1",
+    "vinyl-source-stream": "^1.1.0"
+  }
 }
