@@ -1,20 +1,16 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
-var Col = require("react-bootstrap").Col;
+var Main = require("./main.jsx");
 
-var Index = React.createClass({
+var Component = React.createClass({
   render:function(){
     return (
-    	<div>
-    	    <Col xs={12} md={12} >
-    			<h1>Hey</h1>
-    		</Col>
-    	</div>
+    	<Main/>
     );
   }
 });
 
 ReactDOM.render(
-  	<Index />,
+  	<Component/>,
   	document.getElementById('content')
 );
