@@ -55,6 +55,12 @@ var cardStyle = {
     marginTop: '10px',
     marginBottom: '10px',
     position: 'absolute'
+  },
+  hover: {
+    backgroundColor: 'rgba(255,255,255,.3)',
+    height: '350px',
+    paddingTop: '10px',
+    position: 'relative'
   }
 }
 
@@ -69,32 +75,35 @@ var Work = React.createClass({
   }
 });
 
+var Content = React.createClass({
+  render: function() {
+    return (
+      <Col xs={12} md={4}>
+        <Thumbnail style={this.props.style} onClick={this.props.onClick} alt={this.props.alt} src={this.props.src}>
+          <div style={this.props.cardStyleMain}>{this.props.title}</div>
+          <div style={this.props.cardStyleSub}>{this.props.desc}</div>
+        </Thumbnail>
+      </Col>
+    );
+  },
+});
+
 var Main = React.createClass({
-  onClickWorks: function(e, url){
+  onClickWorks: function(url){
     window.open(url, '_blank');
   },
   render: function() {
     return (
       <Grid style={cardStyle.text}>
         <Row>
-          <Col xs={12} md={4}>
-            <Thumbnail style={cardStyle.background} onClick={this.onClickWorks.bind(this, 1, 'http://gupuru.hatenablog.jp/')} alt="171x180" src="../scripts/sample.png">
-              <div style={cardStyle.main}>Thumbnail label</div>
-              <div style={cardStyle.sub}>Descriptionaaaaaaaaaaaaaaaaaaddddddddddddddddddddddddaaaaaaaaaaaaaaa</div>
-            </Thumbnail>
-          </Col>
-          <Col xs={12} md={4}>
-            <Thumbnail style={cardStyle.background} onClick={this.onClickWorks.bind(this, 2, 'http://gupuru.hatenablog.jp/')} alt="171x180" src="../scripts/sample.png">
-              <div style={cardStyle.main}>Thumbnail label</div>
-              <div style={cardStyle.sub}>Descriptionaaaaaaaaaaaaaaaaaaddddddddddddddddddddddddaaaaaaaaaaaaaaa</div>
-            </Thumbnail>
-          </Col>
-          <Col xs={12} md={4}>
-            <Thumbnail style={cardStyle.background} onClick={this.onClickWorks.bind(this, 3, 'http://gupuru.hatenablog.jp/')} alt="171x180" src="../scripts/sample.png">
-              <div style={cardStyle.main}>Thumbnail label</div>
-              <div style={cardStyle.sub}>Descriptionaaaaaaaaaaaaaaaaaaddddddddddddddddddddddddaaaaaaaaaaaaaaa</div>
-            </Thumbnail>
-          </Col>
+          <Content style={cardStyle.background} cardStyleMain={cardStyle.main} cardStyleSub={cardStyle.sub} title="エフプレ" desc="自分のお気に入りスポットを共有するSNSっぽいアプリです。" alt="エフプレ" src="../images/f_place.png" onClick={this.onClickWorks.bind(this, 'https://itunes.apple.com/jp/app/efupure/id995643126?mt=8')} />
+          <Content style={cardStyle.background} cardStyleMain={cardStyle.main} cardStyleSub={cardStyle.sub} title="ロケモ" desc="場所を記録するメモアプリです。" alt="ロケモ" src="../images/location_memo.png" onClick={this.onClickWorks.bind(this, 'https://itunes.apple.com/jp/app/id959363067')} />
+          <Content style={cardStyle.background} cardStyleMain={cardStyle.main} cardStyleSub={cardStyle.sub} title="ペットボトルロケットのシミュレーション" desc="ペットボトルロケットのシミュレーションです。 軌道は、ちゃんと計算しています。" alt="ロケットシミュレーション" src="../images/simulation.png" onClick={this.onClickWorks.bind(this, 'https://youtu.be/c8Hiur8yb-k')} />
+        </Row>
+        <Row>
+          <Content style={cardStyle.background} cardStyleMain={cardStyle.main} cardStyleSub={cardStyle.sub} title="格子に星が入っているアクセサリーです。" desc="アクセサリーです。DMMの方で販売しています。" alt="アクセサリー" src="../images/accessories.png" onClick={this.onClickWorks.bind(this, 'http://make.dmm.com/item/13494/')} />
+          <Content style={cardStyle.background} cardStyleMain={cardStyle.main} cardStyleSub={cardStyle.sub} title="ロケーションメモ" desc="「メモ」+「住所」がコンセプトのAndroidアプリです。" alt="ロケモandroid" src="../images/location_memo_android.png" onClick={this.onClickWorks.bind(this, 'https://play.google.com/store/apps/details?id=orimagi.location.pomo')} />
+          <Content style={cardStyle.background} cardStyleMain={cardStyle.main} cardStyleSub={cardStyle.sub} title="今年は平成何年？" desc="平成何年かが、すぐ分かります。ただ、それだけです。" alt="年号" src="../images/nengo.png" onClick={this.onClickWorks.bind(this, 'https://play.google.com/store/apps/details?id=com.orimagi.nengo')} />
         </Row>
       </Grid>
     );

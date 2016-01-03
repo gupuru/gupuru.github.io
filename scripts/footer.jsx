@@ -111,7 +111,7 @@ var Mail = React.createClass({
       buttonStyle = style.hover;
     }
     return (
-      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} href="mailto:origami.magic789@gmail.com">Mail</a>
+      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} onClick={this.mouseOut} href="mailto:origami.magic789@gmail.com">Mail</a>
     );
   }
 });
@@ -132,7 +132,7 @@ var Twitter = React.createClass({
       buttonStyle = style.hover;
     }
     return (
-      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} href="https://twitter.com/gupuru" target="_blank">Twitter</a>
+      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} onClick={this.mouseOut} href="https://twitter.com/gupuru" target="_blank">Twitter</a>
     );
   }
 });
@@ -153,7 +153,7 @@ var GitHub = React.createClass({
       buttonStyle = style.hover;
     }
     return (
-      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} href="https://github.com/gupuru" target="_blank">GitHub</a>
+      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} onClick={this.mouseOut} href="https://github.com/gupuru" target="_blank">GitHub</a>
     );
   }
 });
@@ -174,7 +174,7 @@ var Blog = React.createClass({
       buttonStyle = style.hover;
     }
     return (
-      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} href="http://gupuru.hatenablog.jp/" target="_blank">Blog</a>
+      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} onClick={this.mouseOut} href="http://gupuru.hatenablog.jp/" target="_blank">Blog</a>
     );
   }
 });
