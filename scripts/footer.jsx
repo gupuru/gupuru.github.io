@@ -3,15 +3,49 @@ var ReactDOM = require("react-dom");
 var Row = require("react-bootstrap").Row;
 var Grid = require("react-bootstrap").Grid;
 var Col = require("react-bootstrap").Col;
-var Button = require("react-bootstrap").Button;
 
 var style = {
   text: {
     textAlign: 'center',
-    fontSize: '1.4em'
+    fontSize: '2.4em',
+    color: '#FCFEFF',
+    fontWeight: 'bold',
+    marginBottom: '30px',
+    paddingTop: '40px'
   },
   contacts: {
     textAlign: 'center'
+  },
+  section: {
+    backgroundColor: '#6699CC',
+    marginTop: '50px'
+  },
+  button: {
+    display: 'inline-block',
+    padding: '.5em .5em',
+    width: '130px',
+    border: 'solid 2px #FCFEFF',
+    color: '#FCFEFF',
+    textDecoration: 'none',
+    outline: 'none',
+    marginLeft: '20px',
+    marginRight: '20px',
+    marginBottom: '30px',
+    transition: 'all .3s'
+  },
+  hover: {
+    backgroundColor: 'rgba(255,255,255,.3)',
+    borderRadius: '30px',
+    display: 'inline-block',
+    padding: '.5em .5em',
+    width: '130px',
+    border: 'solid 2px #FCFEFF',
+    color: '#FCFEFF',
+    textDecoration: 'none',
+    outline: 'none',
+    marginLeft: '20px',
+    marginRight: '20px',
+    marginBottom: '30px'
   }
 }
 
@@ -26,8 +60,8 @@ var Footer = React.createClass({
 var Main = React.createClass({
   render: function() {
     return (
-      <div>
-        <p style={style.text}>CONTACTS</p>
+      <div style={style.section}>
+        <div style={style.text}>CONTACTS</div>
         <Contacts/>
       </div>
     );
@@ -41,22 +75,106 @@ var Contacts = React.createClass({
         <Grid>
           <Row>
             <Col style={style.contacts}  xs={6} md={6}>
-              <Button bsSize="large" href="https://twitter.com/gupuru">Twitter</Button>
+              <Twitter/>
             </Col>
             <Col style={style.contacts} xs={6} md={6}>
-              <Button bsSize="large" href="https://github.com/gupuru">GitHub</Button>
+              <GitHub/>
             </Col>
           </Row>
           <Row>
             <Col style={style.contacts} xs={6} md={6}>
-              <Button bsSize="large" href="mailto:origami.magic789@gmail.com">Mail</Button>
+              <Blog/>
             </Col>
             <Col style={style.contacts} xs={6} md={6}>
-              <Button bsSize="large" href="http://gupuru.hatenablog.jp/">Blog</Button>
+              <Mail/>
             </Col>
           </Row>
         </Grid>
       </div>
+    );
+  }
+});
+
+var Mail = React.createClass({
+  getInitialState: function () {
+      return {hover: false};
+  },
+  mouseOver: function () {
+    this.setState({hover: true});
+  },
+  mouseOut: function () {
+    this.setState({hover: false});
+  },
+  render: function() {
+    var buttonStyle = style.button;
+    if(this.state.hover) {
+      buttonStyle = style.hover;
+    }
+    return (
+      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} href="mailto:origami.magic789@gmail.com">Mail</a>
+    );
+  }
+});
+
+var Twitter = React.createClass({
+  getInitialState: function () {
+      return {hover: false};
+  },
+  mouseOver: function () {
+    this.setState({hover: true});
+  },
+  mouseOut: function () {
+    this.setState({hover: false});
+  },
+  render: function() {
+    var buttonStyle = style.button;
+    if(this.state.hover) {
+      buttonStyle = style.hover;
+    }
+    return (
+      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} href="https://twitter.com/gupuru" target="_blank">Twitter</a>
+    );
+  }
+});
+
+var GitHub = React.createClass({
+  getInitialState: function () {
+      return {hover: false};
+  },
+  mouseOver: function () {
+    this.setState({hover: true});
+  },
+  mouseOut: function () {
+    this.setState({hover: false});
+  },
+  render: function() {
+    var buttonStyle = style.button;
+    if(this.state.hover) {
+      buttonStyle = style.hover;
+    }
+    return (
+      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} href="https://github.com/gupuru" target="_blank">GitHub</a>
+    );
+  }
+});
+
+var Blog = React.createClass({
+  getInitialState: function () {
+      return {hover: false};
+  },
+  mouseOver: function () {
+    this.setState({hover: true});
+  },
+  mouseOut: function () {
+    this.setState({hover: false});
+  },
+  render: function() {
+    var buttonStyle = style.button;
+    if(this.state.hover) {
+      buttonStyle = style.hover;
+    }
+    return (
+      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} href="http://gupuru.hatenablog.jp/" target="_blank">Blog</a>
     );
   }
 });

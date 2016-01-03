@@ -5,14 +5,21 @@ var Profile = require("./profile.jsx");
 var Work = require("./work.jsx");
 var Footer = require("./footer.jsx");
 
+var style = {
+  main: {
+    fontFamily: 'Hiragino Kaku Gothic ProN, Meiryo, MS PGothic, Sans-serif',
+    backgroundColor: '#FCFEFF'
+  }
+}
+
 var Main = React.createClass({
   render:function(){
     return (
-    	<div>
-        <Header/>
-        <Profile/>
-        <Work/>
-        <Footer/>
+    	<div style={style.main}>
+            <Header/>
+            <Work/>
+            <Profile/>
+            <Footer/>
     	</div>
     );
   }

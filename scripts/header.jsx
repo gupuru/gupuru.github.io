@@ -12,20 +12,22 @@ var Header = React.createClass({
 });
 
 var style = {
-  container: {
-    backgroundColor: '#ff0000',
+  section: {
+    backgroundColor: '#96d9fa',
     width: '100%',
     margin: '0px'
   },
   main: {
-    textAlign: 'center'
+    color: '#FCFEFF',
+    textAlign: 'center',
+    fontSize: '3.2em',
+    fontWeight: 'bold'
   },
   sub: {
     textAlign: 'center',
-    fontSize: '1.4em'
-  },
-  social: {
-    textAlign: 'center'
+    fontSize: '1.4em',
+    color: '#FCFEFF',
+    marginTop: '20px'
   }
 }
 
@@ -33,8 +35,8 @@ var Main = React.createClass({
   render: function() {
     return (
       <div>
-          <Jumbotron style={style.container}>
-            <h1 style={style.main}>@gupuru</h1>
+          <Jumbotron style={style.section}>
+            <div style={style.main}>&#64;gupuru</div>
             <div style={style.sub}>Kohei Niimi Portfolio Website</div>
             <SocialBtn/>
           </Jumbotron>
