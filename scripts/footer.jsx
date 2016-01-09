@@ -28,8 +28,6 @@ var style = {
     color: '#FCFEFF',
     textDecoration: 'none',
     outline: 'none',
-    marginLeft: '20px',
-    marginRight: '20px',
     marginBottom: '30px',
     transition: 'all .3s'
   },
@@ -43,8 +41,6 @@ var style = {
     color: '#FCFEFF',
     textDecoration: 'none',
     outline: 'none',
-    marginLeft: '20px',
-    marginRight: '20px',
     marginBottom: '30px'
   }
 }

@@ -70,8 +70,8 @@ var LongMessage = React.createClass({
           <div style={messageStyle.mainText}>
             <p>今は、<a href="https://yamap.co.jp/page/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81%E3%83%BB%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B" target="_blank">株式会社セフリ</a>で、Androidアプリの開発をしています。</p>
             <div style={messageStyle.lineBreak}>
-              <p>主に、Webやアプリ&#40;iOS, Android&#41;などを作っています。</p>
-              <p>最近は、UX, WordPress, Dockerにハマっています。</p>
+              <p>主に、Webやアプリ&#40;iOS, Android&#41;を作っています。</p>
+              <p>最近は、UX, WordPress, Dockerとかも頑張っています。</p>
             </div>
             <div style={messageStyle.lineBreak}>
               <p>Android, iOSは、10本以上つくりました。大部分は、App StoreやGoogle playで公開しています。&#40;更新を停止しているものが多いです...&#41;</p>
@@ -80,7 +80,7 @@ var LongMessage = React.createClass({
             </div>
             <div style={messageStyle.lineBreak}>
               <p>趣味は、映画鑑賞, 天体観測, 読書&#40;科学系, ラノベ, 漫画, 技術書&#41;です。最近は、絵を書き始めまた。 </p>
-              <p>今は、今は福岡で一人暮らしをしています。</p>
+              <p>今は、福岡で一人暮らしをしています。</p>
             </div>
             <div style={messageStyle.lineBreak}>
               <p>小学生からPCを触り始め、もっとPCについて知りたいと思い、大学ではコンピュータ科学を勉強しました。&#40;大学は2014年3月に卒業しました。&#41;</p>
