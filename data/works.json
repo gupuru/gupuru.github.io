@@ -1,0 +1,10 @@
+{
+	"works": [
+		{"title":"エフプレ","desc":"自分のお気に入りスポットを共有するSNSっぽいアプリです。","alt":"エフプレ","img":"http://gupuru.github.io/images/f_place.png","link":"https://itunes.apple.com/jp/app/efupure/id995643126?mt=8"},
+		{"title":"ロケモ","desc":"場所を記録するメモアプリです。","alt":"ロケモ","img":"http://gupuru.github.io/images/location_memo.png","link":"https://itunes.apple.com/jp/app/id959363067"},
+		{"title":"ペットボトルロケットのシミュレーション","desc":"ペットボトルロケットのシミュレーションです。 軌道は、ちゃんと計算しています。","alt":"ロケットシミュレーション","img":"http://gupuru.github.io/images/simulation.png","link":"https://youtu.be/c8Hiur8yb-k"},
+		{"title":"格子に星が入っているアクセサリーです。","desc":"アクセサリーです。DMMの方で販売しています。","alt":"アクセサリー","img":"http://gupuru.github.io/images/accessories.png","link":"http://make.dmm.com/item/13494/"},
+		{"title":"ロケーションメモ","desc":"「メモ」+「住所」がコンセプトのAndroidアプリです。","alt":"ロケモandroid","img":"http://gupuru.github.io/images/location_memo_android.png","link":"https://play.google.com/store/apps/details?id=orimagi.location.pomo"},
+		{"title":"今年は平成何年？","desc":"平成何年かが、すぐ分かります。ただ、それだけです。","alt":"年号","img":"http://gupuru.github.io/images/nengo.png","link":"https://play.google.com/store/apps/details?id=com.orimagi.nengo"}
+	]
+}
