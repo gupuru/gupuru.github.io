@@ -46,15 +46,15 @@ var Main = React.createClass({
   render: function() {
     return (
       <div style={style.section}>
-        <Twitter/>
-        <GitHub/>
-        <Blog/>
+        <Socials url="https://twitter.com/gupuru" title="Twitter"/>
+        <Socials url="https://github.com/gupuru" title="GitHub"/>
+        <Socials url="http://gupuru.hatenablog.jp/" title="Blog"/>
       </div>
     );
   }
 });
 
-var Twitter = React.createClass({
+var Socials = React.createClass({
   getInitialState: function () {
       return {hover: false};
   },
@@ -70,49 +70,7 @@ var Twitter = React.createClass({
       buttonStyle = style.hover;
     }
     return (
-      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} onClick={this.mouseOut} href="https://twitter.com/gupuru" target="_blank">Twitter</a>
-    );
-  }
-});
-
-var GitHub = React.createClass({
-  getInitialState: function () {
-      return {hover: false};
-  },
-  mouseOver: function () {
-    this.setState({hover: true});
-  },
-  mouseOut: function () {
-    this.setState({hover: false});
-  },
-  render: function() {
-    var buttonStyle = style.button;
-    if(this.state.hover) {
-      buttonStyle = style.hover;
-    }
-    return (
-      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} onClick={this.mouseOut} href="https://github.com/gupuru" target="_blank">GitHub</a>
-    );
-  }
-});
-
-var Blog = React.createClass({
-  getInitialState: function () {
-      return {hover: false};
-  },
-  mouseOver: function () {
-    this.setState({hover: true});
-  },
-  mouseOut: function () {
-    this.setState({hover: false});
-  },
-  render: function() {
-    var buttonStyle = style.button;
-    if(this.state.hover) {
-      buttonStyle = style.hover;
-    }
-    return (
-      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} onClick={this.mouseOut} href="http://gupuru.hatenablog.jp/" target="_blank">Blog</a>
+      <a style={buttonStyle} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} onClick={this.mouseOut} href={this.props.url} target="_blank">{this.props.title}</a>
     );
   }
 });

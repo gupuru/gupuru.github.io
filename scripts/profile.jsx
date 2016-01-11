@@ -1,5 +1,6 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
+var Request = require("superagent");
 var Row = require("react-bootstrap").Row;
 var Col = require("react-bootstrap").Col;
 var Image = require("react-bootstrap").Image;
@@ -50,10 +51,37 @@ var messageStyle = {
   }
 }
 
+var GetProfileImage = React.createClass({
+  getInitialState: function() {
+    return {
+      imageUrl: '../images/placeholder.jpg',
+      alt: 'プロフィール画像'
+    };
+  },
+  componentDidMount: function() {
+    Request
+    .get(this.props.source)
+    .end(function(err, res){
+      var data = res.body;
+      if (this.isMounted()) {
+          this.setState({
+            imageUrl: data.profile_image,
+            alt: data.alt
+          });
+      }
+    }.bind(this));
+  },
+  render: function() {
+    return (
+      <Image style={profileImageStyle.image} src={this.state.imageUrl} alt={this.state.alt} circle />
+    );
+  }
+});
+
 var ProfileImage = React.createClass({
   render: function() {
     return (
-      <Image style={profileImageStyle.image} src="../images/profile.jpg" alt="プロフィール" circle />
+      <GetProfileImage source="http://gupuru.github.io/data/profile.json" />
     );
   }
 });

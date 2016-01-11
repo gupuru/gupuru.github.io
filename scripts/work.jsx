@@ -6,6 +6,7 @@ var Grid = require("react-bootstrap").Grid;
 var Thumbnail = require("react-bootstrap").Thumbnail;
 var Col = require("react-bootstrap").Col;
 var Button = require("react-bootstrap").Button;
+var Request = require("superagent");
 
 var style = {
   text: {
@@ -76,36 +77,92 @@ var Work = React.createClass({
 });
 
 var Content = React.createClass({
+  onClickWorks: function(url){
+    if (url == '' || url == undefined) {
+      window.alert('取得中です。少々お待ちください。');
+    } else {
+      window.open(url, '_blank');
+    }
+  },
   render: function() {
     return (
       <Col xs={12} md={4}>
-        <Thumbnail style={this.props.style} onClick={this.props.onClick} alt={this.props.alt} src={this.props.src}>
-          <div style={this.props.cardStyleMain}>{this.props.title}</div>
-          <div style={this.props.cardStyleSub}>{this.props.desc}</div>
+        <Thumbnail style={cardStyle.background} onClick={this.props.onClick} alt={this.props.alt} src={this.props.src} onClick={this.onClickWorks.bind(this, this.props.url)} >
+          <div style={cardStyle.main}>{this.props.title}</div>
+          <div style={cardStyle.sub}>{this.props.desc}</div>
         </Thumbnail>
       </Col>
     );
   },
 });
 
-var Main = React.createClass({
-  onClickWorks: function(url){
-    window.open(url, '_blank');
+var GetWorkContent = React.createClass({
+  getInitialState: function() {
+    return {
+      works: [
+        {
+          isUpper: true,
+          title: '取得中...',
+          desc: '取得中です。少々お待ちください。',
+          alt: '',
+          img: '../images/placeholder.jpg',
+          link: ''
+        },
+        {
+          isUpper: false,
+          title: '取得中...',
+          desc: '取得中です。少々お待ちください。',
+          alt: '',
+          img: '../images/placeholder.jpg',
+          link: ''
+        }
+      ]
+    };
+  },
+  componentDidMount: function() {
+    Request
+    .get(this.props.source)
+    .end(function(err, res){
+      var data = res.body;
+      if (this.isMounted()) {
+          this.setState({
+            works: data.works
+          });
+      }
+    }.bind(this));
   },
   render: function() {
+    var upperItems = this.state.works.map(function(work, i) {
+      if (work.isUpper) {
+        return (
+          <Content key={i} title={work.title} desc={work.desc} alt={work.alt} src={work.img} url={work.link}/>
+        );
+      }
+    });
+    var bottomItems = this.state.works.map(function(work, i) {
+      if (!work.isUpper) {
+        return (
+          <Content key={i} title={work.title} desc={work.desc} alt={work.alt} src={work.img} url={work.link}/>
+        );
+      }
+    });
     return (
-      <Grid style={cardStyle.text}>
+     <Grid style={cardStyle.text}>
         <Row>
-          <Content style={cardStyle.background} cardStyleMain={cardStyle.main} cardStyleSub={cardStyle.sub} title="エフプレ" desc="自分のお気に入りスポットを共有するSNSっぽいアプリです。" alt="エフプレ" src="../images/f_place.png" onClick={this.onClickWorks.bind(this, 'https://itunes.apple.com/jp/app/efupure/id995643126?mt=8')} />
-          <Content style={cardStyle.background} cardStyleMain={cardStyle.main} cardStyleSub={cardStyle.sub} title="ロケモ" desc="場所を記録するメモアプリです。" alt="ロケモ" src="../images/location_memo.png" onClick={this.onClickWorks.bind(this, 'https://itunes.apple.com/jp/app/id959363067')} />
-          <Content style={cardStyle.background} cardStyleMain={cardStyle.main} cardStyleSub={cardStyle.sub} title="ペットボトルロケットのシミュレーション" desc="ペットボトルロケットのシミュレーションです。 軌道は、ちゃんと計算しています。" alt="ロケットシミュレーション" src="../images/simulation.png" onClick={this.onClickWorks.bind(this, 'https://youtu.be/c8Hiur8yb-k')} />
+          {upperItems}
         </Row>
         <Row>
-          <Content style={cardStyle.background} cardStyleMain={cardStyle.main} cardStyleSub={cardStyle.sub} title="格子に星が入っているアクセサリーです。" desc="アクセサリーです。DMMの方で販売しています。" alt="アクセサリー" src="../images/accessories.png" onClick={this.onClickWorks.bind(this, 'http://make.dmm.com/item/13494/')} />
-          <Content style={cardStyle.background} cardStyleMain={cardStyle.main} cardStyleSub={cardStyle.sub} title="ロケーションメモ" desc="「メモ」+「住所」がコンセプトのAndroidアプリです。" alt="ロケモandroid" src="../images/location_memo_android.png" onClick={this.onClickWorks.bind(this, 'https://play.google.com/store/apps/details?id=orimagi.location.pomo')} />
-          <Content style={cardStyle.background} cardStyleMain={cardStyle.main} cardStyleSub={cardStyle.sub} title="今年は平成何年？" desc="平成何年かが、すぐ分かります。ただ、それだけです。" alt="年号" src="../images/nengo.png" onClick={this.onClickWorks.bind(this, 'https://play.google.com/store/apps/details?id=com.orimagi.nengo')} />
+          {bottomItems}
         </Row>
       </Grid>
+    );
+  }
+});
+
+var Main = React.createClass({
+  render: function() {
+    return (
+      <GetWorkContent source="http://gupuru.github.io/data/works.json" />
     );
   }
 });
