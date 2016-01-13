@@ -1,5 +1,4 @@
 var React = require("react");
-var ReactDOM = require("react-dom");
 var Row = require("react-bootstrap").Row;
 var Grid = require("react-bootstrap").Grid;
 var Col = require("react-bootstrap").Col;

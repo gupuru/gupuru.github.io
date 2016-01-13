@@ -1,5 +1,4 @@
 var React = require("react");
-var ReactDOM = require("react-dom");
 var Request = require("superagent");
 var Row = require("react-bootstrap").Row;
 var Col = require("react-bootstrap").Col;

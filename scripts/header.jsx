@@ -1,5 +1,4 @@
 var React = require("react");
-var ReactDOM = require("react-dom");
 var Jumbotron = require("react-bootstrap").Jumbotron;
 var SocialBtn = require("./social_button.jsx");
 
